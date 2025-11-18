@@ -153,6 +153,7 @@ body::after {
 .wireframe-btn {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: calc(var(--grid-baseline) * 2);
   padding: calc(var(--grid-baseline) * 2) calc(var(--grid-baseline) * 4);
   font-family: var(--font-sans);
