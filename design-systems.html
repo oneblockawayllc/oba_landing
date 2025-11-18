@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wireframe Catalyst - Design System</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* Inverted Tech Color Scheme with Vaporwave Accents */
+            --color-base: #fafafa;
+            --color-surface: #ffffff;
+            --color-wireframe: #1a1a1a;
+            --color-wireframe-light: #404040;
+            --color-wireframe-subtle: #e0e0e0;
+            --color-energy-primary: #FF71CE;
+            --color-energy-secondary: #01CDFE;
+            --color-energy-accent: #B967FF;
+            --color-text-primary: #1a1a1a;
+            --color-text-secondary: #404040;
+            --color-text-tertiary: #737373;
+
+            /* Grid System */
+            --grid-baseline: 8px;
+            --grid-column: 64px;
+            --grid-gutter: 24px;
+
+            /* Typography */
+            --font-mono: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', monospace;
+            --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+
+            /* Physics */
+            --spring-tension: cubic-bezier(0.34, 1.56, 0.64, 1);
+            --spring-smooth: cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background: var(--color-base);
+            color: var(--color-text-primary);
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Exposed Grid System - Isometric 3D with Vaporwave Tint */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image:
+                repeating-linear-gradient(30deg, transparent 0, transparent 39px, rgba(255, 113, 206, 0.08) 39px, rgba(255, 113, 206, 0.08) 40px),
+                repeating-linear-gradient(-30deg, transparent 0, transparent 39px, rgba(1, 205, 254, 0.08) 39px, rgba(1, 205, 254, 0.08) 40px),
+                repeating-linear-gradient(90deg, transparent 0, transparent 39px, rgba(185, 103, 255, 0.08) 39px, rgba(185, 103, 255, 0.08) 40px);
+            background-size: 80px 139px, 80px 139px, 80px 139px;
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.6;
+            animation: grid-pulse 4s ease-in-out infinite;
+        }
+
+        @keyframes grid-pulse {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 0.3; }
+        }
+
+        .grid-annotation {
+            position: fixed;
+            font-family: var(--font-mono);
+            font-size: 9px;
+            color: var(--color-energy-secondary);
+            background: var(--color-surface);
+            padding: 2px 6px;
+            border: 1px solid var(--color-energy-secondary);
+            pointer-events: none;
+            z-index: 1;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: calc(var(--grid-baseline) * 12) calc(var(--grid-gutter) * 2);
+            position: relative;
+            z-index: 10;
+        }
+
+        /* Header with Wireframe Aesthetic */
+        .header {
+            margin-bottom: calc(var(--grid-baseline) * 12);
+            position: relative;
+            padding: calc(var(--grid-baseline) * 6);
+            border: 2px solid var(--color-wireframe);
+            background: var(--color-surface);
+            border-radius: 12px 4px 12px 4px;
+            transition: all 0.6s var(--spring-tension);
+        }
+
+        .header:hover {
+            border-radius: 4px 20px 4px 20px;
+        }
+
+        .header::before {
+            content: 'DESIGN SYSTEM v1.0';
+            position: absolute;
+            top: -10px;
+            left: calc(var(--grid-baseline) * 3);
+            background: var(--color-surface);
+            padding: 0 8px;
+            font-family: var(--font-mono);
+            font-size: 10px;
+            color: var(--color-wireframe-light);
+            letter-spacing: 0.1em;
+        }
+
+        .header::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 24px;
+            height: 24px;
+            border-top: 2px solid var(--color-energy-primary);
+            border-right: 2px solid var(--color-energy-primary);
+            animation: energy-pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes energy-pulse {
+            0%, 100% {
+                box-shadow: 0 0 0 rgba(255, 113, 206, 0.4);
+            }
+            33% {
+                box-shadow: 0 0 20px rgba(1, 205, 254, 0.6);
+            }
+            66% {
+                box-shadow: 0 0 20px rgba(185, 103, 255, 0.6);
+            }
+        }
+
+        .title {
+            font-size: clamp(2.5rem, 8vw, 6rem);
+            font-weight: 900;
+            letter-spacing: -0.03em;
+            line-height: 0.95;
+            margin-bottom: calc(var(--grid-baseline) * 3);
+            position: relative;
+        }
+
+        .title .technical {
+            font-family: var(--font-mono);
+            font-size: 0.2em;
+            display: block;
+            color: var(--color-wireframe-light);
+            letter-spacing: 0.2em;
+            margin-bottom: calc(var(--grid-baseline) * 2);
+        }
+
+        .title .main {
+            background: linear-gradient(135deg, var(--color-wireframe) 0%, var(--color-wireframe-light) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            position: relative;
+            display: inline-block;
+        }
+
+        .title .main::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--color-energy-primary) 0%, var(--color-energy-secondary) 50%, var(--color-energy-accent) 100%);
+            transform: scaleX(0);
+            transform-origin: left;
+            animation: line-draw 1.5s var(--spring-smooth) forwards;
+        }
+
+        @keyframes line-draw {
+            to { transform: scaleX(1); }
+        }
+
+        .subtitle {
+            font-size: 1.125rem;
+            color: var(--color-text-secondary);
+            line-height: 1.6;
+            max-width: 600px;
+            position: relative;
+            padding-left: calc(var(--grid-baseline) * 3);
+            border-left: 2px solid var(--color-energy-secondary);
+        }
+
+        /* Component Section */
+        .section {
+            margin-bottom: calc(var(--grid-baseline) * 16);
+            position: relative;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: baseline;
+            gap: calc(var(--grid-baseline) * 2);
+            margin-bottom: calc(var(--grid-baseline) * 6);
+            padding-bottom: calc(var(--grid-baseline) * 2);
+            border-bottom: 1px solid var(--color-wireframe-subtle);
+        }
+
+        .section-label {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            color: var(--color-energy-secondary);
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+
+        .section-grid {
+            display: grid;
+            gap: calc(var(--grid-baseline) * 4);
+        }
+
+        /* Wireframe Button */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: calc(var(--grid-baseline) * 2);
+            padding: calc(var(--grid-baseline) * 2) calc(var(--grid-baseline) * 4);
+            font-family: var(--font-sans);
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            border: 2px solid var(--color-wireframe);
+            background: var(--color-surface);
+            color: var(--color-text-primary);
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.5s var(--spring-tension);
+            border-radius: 4px;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(135deg, var(--color-energy-primary), var(--color-energy-secondary), var(--color-energy-accent));
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.4s var(--spring-smooth);
+        }
+
+        .btn::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                repeating-linear-gradient(45deg, transparent 0, transparent 2px, var(--color-wireframe-subtle) 2px, var(--color-wireframe-subtle) 4px);
+            opacity: 0;
+            transition: opacity 0.4s;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            border-color: var(--color-energy-secondary);
+            color: var(--color-wireframe);
+            border-radius: 24px 4px 24px 4px;
+        }
+
+        .btn:hover::after {
+            opacity: 0.5;
+            animation: schematic-scan 2s linear infinite;
+        }
+
+        @keyframes schematic-scan {
+            from { background-position: 0 0; }
+            to { background-position: 20px 20px; }
+        }
+
+        .btn-primary {
+            border-color: var(--color-energy-primary);
+            background: var(--color-wireframe);
+            color: var(--color-surface);
+            border-radius: 8px;
+        }
+
+        .btn-primary:hover {
+            background: linear-gradient(135deg, var(--color-energy-primary) 0%, var(--color-energy-secondary) 100%);
+            border-color: var(--color-energy-primary);
+            color: var(--color-wireframe);
+            box-shadow: 0 8px 32px rgba(255, 113, 206, 0.4);
+            border-radius: 32px 8px 32px 8px;
+        }
+
+        .btn .icon {
+            width: 16px;
+            height: 16px;
+            position: relative;
+        }
+
+        .btn .icon::before,
+        .btn .icon::after {
+            content: '';
+            position: absolute;
+            background: currentColor;
+        }
+
+        .btn .icon::before {
+            width: 100%;
+            height: 2px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .btn .icon::after {
+            width: 2px;
+            height: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* Wireframe Card */
+        .card {
+            background: var(--color-surface);
+            border: 2px solid var(--color-wireframe);
+            padding: calc(var(--grid-baseline) * 4);
+            position: relative;
+            transition: all 0.5s var(--spring-tension);
+            border-radius: 8px 4px 8px 4px;
+        }
+
+        .card::before {
+            content: attr(data-id);
+            position: absolute;
+            top: -10px;
+            left: calc(var(--grid-baseline) * 2);
+            background: var(--color-surface);
+            padding: 0 8px;
+            font-family: var(--font-mono);
+            font-size: 10px;
+            color: var(--color-wireframe-light);
+            letter-spacing: 0.1em;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            border-color: var(--color-energy-secondary);
+            box-shadow:
+                8px 8px 0 rgba(1, 205, 254, 0.15),
+                16px 16px 0 rgba(255, 113, 206, 0.08);
+            border-radius: 4px 16px 4px 16px;
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: calc(var(--grid-baseline) * 2);
+            letter-spacing: -0.01em;
+        }
+
+        .card-body {
+            color: var(--color-text-secondary);
+            line-height: 1.6;
+        }
+
+        .card-meta {
+            margin-top: calc(var(--grid-baseline) * 3);
+            padding-top: calc(var(--grid-baseline) * 3);
+            border-top: 1px solid var(--color-wireframe-subtle);
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            color: var(--color-text-tertiary);
+            display: flex;
+            gap: calc(var(--grid-baseline) * 3);
+        }
+
+        /* Wireframe Input */
+        .input-group {
+            margin-bottom: calc(var(--grid-baseline) * 4);
+        }
+
+        .input-label {
+            display: flex;
+            align-items: center;
+            gap: calc(var(--grid-baseline));
+            margin-bottom: calc(var(--grid-baseline) * 2);
+            font-family: var(--font-mono);
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--color-wireframe-light);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .input-label::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            border: 2px solid var(--color-energy-secondary);
+            background: var(--color-surface);
+        }
+
+        .input-field {
+            width: 100%;
+            padding: calc(var(--grid-baseline) * 2);
+            background: var(--color-surface);
+            border: 2px solid var(--color-wireframe-subtle);
+            color: var(--color-text-primary);
+            font-family: var(--font-sans);
+            font-size: 1rem;
+            transition: all 0.4s var(--spring-tension);
+            position: relative;
+            border-radius: 4px;
+        }
+
+        .input-field:focus {
+            outline: none;
+            border-color: var(--color-energy-secondary);
+            box-shadow:
+                4px 4px 0 rgba(1, 205, 254, 0.15),
+                8px 8px 0 rgba(255, 113, 206, 0.08),
+                inset 0 0 0 1px var(--color-energy-secondary);
+            border-radius: 16px 4px 16px 4px;
+        }
+
+        .input-field::placeholder {
+            color: var(--color-text-tertiary);
+            font-style: italic;
+        }
+
+        /* Technical Badge */
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: calc(var(--grid-baseline));
+            padding: calc(var(--grid-baseline)) calc(var(--grid-baseline) * 2);
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            border: 1px solid var(--color-wireframe);
+            background: var(--color-surface);
+            color: var(--color-wireframe-light);
+            position: relative;
+            margin: calc(var(--grid-baseline)) calc(var(--grid-baseline)) 0 0;
+            transition: all 0.3s var(--spring-smooth);
+        }
+
+        .badge::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            background: var(--color-energy-primary);
+            box-shadow: 0 0 12px var(--color-energy-primary);
+            animation: status-blink 2s ease-in-out infinite;
+        }
+
+        @keyframes status-blink {
+            0%, 100% {
+                opacity: 1;
+                box-shadow: 0 0 12px var(--color-energy-primary);
+            }
+            50% {
+                opacity: 0.3;
+                box-shadow: 0 0 4px var(--color-energy-primary);
+            }
+        }
+
+        .badge:hover {
+            transform: translateY(-1px);
+            border-color: var(--color-energy-primary);
+            color: var(--color-wireframe);
+            box-shadow: 0 4px 12px rgba(255, 113, 206, 0.3);
+        }
+
+        /* Progress Indicator */
+        .progress-wrapper {
+            margin-bottom: calc(var(--grid-baseline) * 4);
+        }
+
+        .progress-label {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: calc(var(--grid-baseline) * 2);
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            color: var(--color-wireframe-light);
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 24px;
+            background: var(--color-surface);
+            border: 2px solid var(--color-wireframe);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .progress-bar::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: repeating-linear-gradient(
+                90deg,
+                transparent 0,
+                transparent 8px,
+                var(--color-wireframe-subtle) 8px,
+                var(--color-wireframe-subtle) 16px
+            );
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--color-energy-primary) 0%, var(--color-energy-secondary) 50%, var(--color-energy-accent) 100%);
+            position: relative;
+            transition: width 1s var(--spring-tension);
+            animation: energy-flow 3s linear infinite;
+            background-size: 200% 100%;
+        }
+
+        @keyframes energy-flow {
+            0% { background-position: 0% 0; }
+            100% { background-position: 200% 0; }
+        }
+
+        .progress-fill::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: repeating-linear-gradient(
+                45deg,
+                transparent 0,
+                transparent 4px,
+                rgba(255, 255, 255, 0.2) 4px,
+                rgba(255, 255, 255, 0.2) 8px
+            );
+            animation: schematic-scan 1s linear infinite;
+        }
+
+        /* Typography Showcase */
+        .type-display {
+            font-size: clamp(3rem, 10vw, 8rem);
+            font-weight: 900;
+            line-height: 0.9;
+            letter-spacing: -0.04em;
+            margin-bottom: calc(var(--grid-baseline) * 4);
+            position: relative;
+        }
+
+        .type-display::after {
+            content: '001';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            font-family: var(--font-mono);
+            font-size: 0.2em;
+            color: var(--color-energy-secondary);
+            opacity: 0.5;
+        }
+
+        .type-metrics {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: calc(var(--grid-baseline) * 2);
+            margin-top: calc(var(--grid-baseline) * 3);
+            padding: calc(var(--grid-baseline) * 3);
+            border: 1px solid var(--color-wireframe-subtle);
+            background: linear-gradient(135deg, rgba(255, 113, 206, 0.03), rgba(1, 205, 254, 0.03), rgba(185, 103, 255, 0.03));
+        }
+
+        .metric {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+        }
+
+        .metric-label {
+            color: var(--color-text-tertiary);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: calc(var(--grid-baseline));
+        }
+
+        .metric-value {
+            color: var(--color-energy-secondary);
+            font-weight: 600;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: calc(var(--grid-baseline) * 6) calc(var(--grid-gutter));
+            }
+
+            .title {
+                font-size: 2.5rem;
+            }
+
+            body::before {
+                opacity: 0.2;
+            }
+        }
+
+        /* Scroll Reveal Animation */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            animation: reveal-in 0.8s var(--spring-smooth) forwards;
+        }
+
+        @keyframes reveal-in {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .reveal:nth-child(1) { animation-delay: 0.1s; }
+        .reveal:nth-child(2) { animation-delay: 0.2s; }
+        .reveal:nth-child(3) { animation-delay: 0.3s; }
+        .reveal:nth-child(4) { animation-delay: 0.4s; }
+        .reveal:nth-child(5) { animation-delay: 0.5s; }
+    </style>
+</head>
+<body>
+    <!-- Grid Annotations -->
+    <div class="grid-annotation" style="top: 16px; left: 24px;">ISOMETRIC: 30°</div>
+    <div class="grid-annotation" style="top: 16px; right: 24px;">3D GRID</div>
+
+    <div class="container">
+        <!-- Header -->
+        <header class="header reveal">
+            <h1 class="title">
+                <span class="technical">SYSTEM ARCHITECTURE</span>
+                <span class="main">Wireframe Catalyst</span>
+            </h1>
+            <p class="subtitle">
+                A future-forward design system exposing the technical infrastructure of transformation.
+                Professional consulting meets experimental interface design.
+            </p>
+        </header>
+
+        <!-- Typography Section -->
+        <section class="section reveal">
+            <div class="section-header">
+                <span class="section-label">01</span>
+                <h2 class="section-title">Typography</h2>
+            </div>
+            <div class="section-grid">
+                <div class="type-display">
+                    Transform Through Design
+                </div>
+                <div class="type-metrics">
+                    <div class="metric">
+                        <div class="metric-label">Weight</div>
+                        <div class="metric-value">900</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-label">Size</div>
+                        <div class="metric-value">8rem</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-label">Spacing</div>
+                        <div class="metric-value">-0.04em</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-label">Line</div>
+                        <div class="metric-value">0.9</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Buttons Section -->
+        <section class="section reveal">
+            <div class="section-header">
+                <span class="section-label">02</span>
+                <h2 class="section-title">Buttons</h2>
+            </div>
+            <div class="section-grid">
+                <div>
+                    <a href="#" class="btn btn-primary">
+                        <span>Start Your Project</span>
+                        <span class="icon"></span>
+                    </a>
+                    <a href="#" class="btn">
+                        <span>View Case Studies</span>
+                        <span class="icon"></span>
+                    </a>
+                    <a href="#" class="btn">
+                        <span>Schedule Consultation</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Cards Section -->
+        <section class="section reveal">
+            <div class="section-header">
+                <span class="section-label">03</span>
+                <h2 class="section-title">Cards</h2>
+            </div>
+            <div class="section-grid">
+                <div class="card" data-id="CARD-001">
+                    <h3 class="card-title">Strategic Problem Solving</h3>
+                    <p class="card-body">
+                        We expose the hidden infrastructure of business challenges. Like a technical schematic,
+                        we map the systems, connections, and energy flows that drive transformation.
+                    </p>
+                    <div class="card-meta">
+                        <span>TYPE: Service</span>
+                        <span>STATUS: Active</span>
+                    </div>
+                </div>
+
+                <div class="card" data-id="CARD-002">
+                    <h3 class="card-title">Catalyst Methodology</h3>
+                    <p class="card-body">
+                        Our approach acts as a spark in your system. We identify leverage points, inject strategic
+                        energy, and accelerate momentum toward your transformation goals.
+                    </p>
+                    <div class="card-meta">
+                        <span>TYPE: Process</span>
+                        <span>STATUS: Proven</span>
+                    </div>
+                </div>
+
+                <div class="card" data-id="CARD-003">
+                    <h3 class="card-title">Blueprint Thinking</h3>
+                    <p class="card-body">
+                        Every solution starts with architecture. We create detailed schematics of your challenge,
+                        mapping dependencies and designing systems that withstand real-world complexity.
+                    </p>
+                    <div class="card-meta">
+                        <span>TYPE: Framework</span>
+                        <span>STATUS: Validated</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Form Inputs Section -->
+        <section class="section reveal">
+            <div class="section-header">
+                <span class="section-label">04</span>
+                <h2 class="section-title">Form Inputs</h2>
+            </div>
+            <div class="section-grid">
+                <div class="input-group">
+                    <label class="input-label">
+                        Company Name
+                    </label>
+                    <input type="text" class="input-field" placeholder="Enter your company name">
+                </div>
+
+                <div class="input-group">
+                    <label class="input-label">
+                        Email Address
+                    </label>
+                    <input type="email" class="input-field" placeholder="your@company.com">
+                </div>
+
+                <div class="input-group">
+                    <label class="input-label">
+                        Project Brief
+                    </label>
+                    <textarea class="input-field" rows="4" placeholder="Describe the challenge you're facing and what transformation you're seeking..."></textarea>
+                </div>
+            </div>
+        </section>
+
+        <!-- Badges Section -->
+        <section class="section reveal">
+            <div class="section-header">
+                <span class="section-label">05</span>
+                <h2 class="section-title">Status Badges</h2>
+            </div>
+            <div class="section-grid">
+                <div>
+                    <span class="badge">System Active</span>
+                    <span class="badge">Local Service</span>
+                    <span class="badge">RTP Region</span>
+                    <span class="badge">Consulting Ready</span>
+                    <span class="badge">Available Now</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Progress Indicators Section -->
+        <section class="section reveal">
+            <div class="section-header">
+                <span class="section-label">06</span>
+                <h2 class="section-title">Progress Indicators</h2>
+            </div>
+            <div class="section-grid">
+                <div class="progress-wrapper">
+                    <div class="progress-label">
+                        <span>DISCOVERY PHASE</span>
+                        <span>87%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 87%"></div>
+                    </div>
+                </div>
+
+                <div class="progress-wrapper">
+                    <div class="progress-label">
+                        <span>STRATEGY DEVELOPMENT</span>
+                        <span>63%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 63%"></div>
+                    </div>
+                </div>
+
+                <div class="progress-wrapper">
+                    <div class="progress-label">
+                        <span>IMPLEMENTATION</span>
+                        <span>42%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 42%"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <script>
+        // Simple scroll reveal observer
+        const reveals = document.querySelectorAll('.reveal');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        reveals.forEach(reveal => observer.observe(reveal));
+    </script>
+</body>
+</html>

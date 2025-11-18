@@ -1,0 +1,110 @@
+import type { Config } from "tailwindcss";
+
+const config: Config = {
+  content: [
+    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
+    "./components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./app/**/*.{js,ts,jsx,tsx,mdx}",
+  ],
+  theme: {
+    extend: {
+      colors: {
+        primary: {
+          DEFAULT: "var(--ag-primary-start)",
+          light: "var(--ag-primary-end)",
+          start: "var(--ag-primary-start)",
+          end: "var(--ag-primary-end)",
+        },
+        accent: {
+          DEFAULT: "var(--ag-primary-end)",
+          muted: "var(--ag-primary-start)",
+          "deep-berry": "var(--ag-accent-deep-berry)",
+          "acid-green": "var(--ag-accent-acid-green)",
+          "vibrant-red": "var(--ag-accent-vibrant-red)",
+          "electric-blue": "var(--ag-accent-electric-blue)",
+          "lime-green": "var(--ag-accent-lime-green)",
+        },
+        bg: {
+          base: "var(--ag-bg-base)",
+          elevated: "var(--ag-bg-card)",
+          card: "var(--ag-bg-card)",
+          "card-hover": "var(--ag-bg-card-hover)",
+          input: "var(--ag-bg-input)",
+          "input-hover": "var(--ag-bg-input-hover)",
+          "input-focus": "var(--ag-bg-input-focus)",
+        },
+        text: {
+          primary: "var(--ag-text-primary)",
+          secondary: "var(--ag-text-secondary)",
+          tertiary: "var(--ag-text-tertiary)",
+          body: "var(--ag-text-body)",
+          muted: "var(--ag-text-muted)",
+          label: "var(--ag-text-label)",
+          placeholder: "var(--ag-text-placeholder)",
+        },
+        border: {
+          base: "var(--ag-border-base)",
+          card: "var(--ag-border-card-hover)",
+          input: "var(--ag-border-input-hover)",
+          "input-focus": "var(--ag-border-input-focus)",
+          accent: "var(--ag-border-accent)",
+        },
+      },
+      fontFamily: {
+        sans: ["var(--font-inter)", "var(--font-ibm-sans)", "sans-serif"],
+        display: ["var(--font-bricolage)", "sans-serif"],
+        mono: ["var(--font-ibm-mono)", "monospace"],
+      },
+      backgroundImage: {
+        'grid-pattern': 'linear-gradient(to right, var(--ag-border-base) 1px, transparent 1px), linear-gradient(to bottom, var(--ag-border-base) 1px, transparent 1px)',
+        'gradient-radial': 'radial-gradient(circle at 50% 50%, var(--ag-primary-end), transparent 70%)',
+        'gradient-radial-animated': 'radial-gradient(ellipse 120% 100% at 50% 50%, var(--ag-primary-end), transparent 70%)',
+        'gradient-primary': 'var(--ag-gradient-primary)',
+        'gradient-text': 'var(--ag-gradient-text)',
+        'gradient-accent': 'var(--ag-gradient-accent)',
+        'pattern-1': 'var(--ag-bg-pattern-1)',
+        'pattern-2': 'var(--ag-bg-pattern-2)',
+        'pattern-card': 'var(--ag-bg-pattern-card)',
+      },
+      borderRadius: {
+        'button': 'var(--ag-radius-button)',
+        'card': 'var(--ag-radius-card)',
+        'input': 'var(--ag-radius-input)',
+        'badge': 'var(--ag-radius-badge)',
+      },
+      fontSize: {
+        'title': 'var(--ag-font-size-title)',
+        'h1': 'var(--ag-font-size-h1)',
+        'h2': 'var(--ag-font-size-h2)',
+        'h3': 'var(--ag-font-size-h3)',
+        'body': 'var(--ag-font-size-body)',
+        'hero': 'var(--ag-font-size-hero)',
+        'display': 'var(--ag-font-size-display)',
+      },
+      boxShadow: {
+        'button': 'var(--ag-shadow-button)',
+        'button-hover': 'var(--ag-shadow-button-hover)',
+        'card': 'var(--ag-shadow-card)',
+        'card-hover': 'var(--ag-shadow-card-hover)',
+        'input-focus': 'var(--ag-shadow-input-focus)',
+        'accent': 'var(--ag-shadow-accent)',
+        'neo-soft': 'var(--ag-shadow-neo-soft)',
+        'neo-medium': 'var(--ag-shadow-neo-medium)',
+        'neo-deep': 'var(--ag-shadow-neo-deep)',
+        'neo-card': 'var(--ag-shadow-neo-card)',
+        'neo-card-hover': 'var(--ag-shadow-neo-card-hover)',
+        'neo-button': 'var(--ag-shadow-neo-button)',
+        'neo-button-hover': 'var(--ag-shadow-neo-button-hover)',
+        'neo-glow': 'var(--ag-shadow-neo-glow)',
+      },
+      transitionProperty: {
+        'ag': 'var(--ag-transition-base)',
+        'ag-fast': 'var(--ag-transition-fast)',
+        'ag-slow': 'var(--ag-transition-slow)',
+      },
+    },
+  },
+  plugins: [],
+};
+export default config;
+

@@ -1,0 +1,389 @@
+/*
+ * Wireframe Catalyst Design System
+ * Vaporwave colors + Isometric grid + Blueprint aesthetic + Blob morphing
+ */
+
+:root {
+  /* ========== VAPORWAVE COLOR PALETTE ========== */
+
+  /* Energy Colors - 90s Vaporwave */
+  --color-energy-primary: #FF71CE;      /* Hot Pink */
+  --color-energy-secondary: #01CDFE;    /* Cyber Cyan */
+  --color-energy-accent: #B967FF;       /* Electric Purple */
+
+  /* Base Colors - Inverted Tech */
+  --color-base: #fafafa;
+  --color-surface: #ffffff;
+  --color-wireframe: #1a1a1a;
+  --color-wireframe-light: #404040;
+  --color-wireframe-subtle: #e0e0e0;
+
+  /* Text Colors */
+  --color-text-primary: #1a1a1a;
+  --color-text-secondary: #404040;
+  --color-text-tertiary: #737373;
+
+  /* ========== TYPOGRAPHY ========== */
+
+  /* Font Families */
+  --font-mono: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', monospace;
+  --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+
+  /* Font Sizes */
+  --font-size-hero: clamp(3rem, 10vw, 8rem);
+  --font-size-display: clamp(2.5rem, 8vw, 6rem);
+  --font-size-h1: 2.5rem;
+  --font-size-h2: 2rem;
+  --font-size-h3: 1.5rem;
+  --font-size-body: 1rem;
+  --font-size-small: 0.875rem;
+  --font-size-tiny: 0.75rem;
+
+  /* ========== GRID SYSTEM ========== */
+
+  --grid-baseline: 8px;
+  --grid-column: 64px;
+  --grid-gutter: 24px;
+
+  /* ========== PHYSICS & ANIMATIONS ========== */
+
+  /* Spring Physics Easing */
+  --spring-tension: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --spring-smooth: cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* Animation Durations */
+  --duration-fast: 0.3s;
+  --duration-normal: 0.4s;
+  --duration-slow: 0.6s;
+
+  /* ========== SPACING ========== */
+
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 0.75rem;
+  --spacing-lg: 1rem;
+  --spacing-xl: 1.5rem;
+  --spacing-2xl: 2rem;
+  --spacing-3xl: 3rem;
+
+  /* ========== BORDER RADIUS (Blob Morphing) ========== */
+
+  /* Button Radii */
+  --radius-btn-default: 4px;
+  --radius-btn-hover: 24px 4px 24px 4px;
+  --radius-btn-primary-default: 8px;
+  --radius-btn-primary-hover: 32px 8px 32px 8px;
+
+  /* Card Radii */
+  --radius-card-default: 8px 4px 8px 4px;
+  --radius-card-hover: 4px 16px 4px 16px;
+
+  /* Input Radii */
+  --radius-input-default: 4px;
+  --radius-input-focus: 16px 4px 16px 4px;
+
+  /* ========== SHADOWS ========== */
+
+  /* Vaporwave Shadows */
+  --shadow-btn-primary: 0 2px 8px rgba(255, 113, 206, 0.25);
+  --shadow-btn-primary-hover: 0 8px 32px rgba(255, 113, 206, 0.4);
+
+  --shadow-card: 0 2px 8px rgba(0, 0, 0, 0.04);
+  --shadow-card-hover:
+    8px 8px 0 rgba(1, 205, 254, 0.15),
+    16px 16px 0 rgba(255, 113, 206, 0.08);
+
+  --shadow-input-focus:
+    4px 4px 0 rgba(1, 205, 254, 0.15),
+    8px 8px 0 rgba(255, 113, 206, 0.08),
+    inset 0 0 0 1px var(--color-energy-secondary);
+
+  /* ========== GRADIENTS ========== */
+
+  /* Vaporwave Gradients */
+  --gradient-vaporwave: linear-gradient(90deg,
+    var(--color-energy-primary) 0%,
+    var(--color-energy-secondary) 50%,
+    var(--color-energy-accent) 100%);
+
+  --gradient-vaporwave-diagonal: linear-gradient(135deg,
+    var(--color-energy-primary) 0%,
+    var(--color-energy-secondary) 100%);
+
+  /* Background Gradients */
+  --gradient-bg-subtle: linear-gradient(135deg,
+    rgba(255, 113, 206, 0.03),
+    rgba(1, 205, 254, 0.03),
+    rgba(185, 103, 255, 0.03));
+
+  /* ========== LEGACY ADAPTIVE GROWTH MAPPINGS ========== */
+  /* For backward compatibility */
+
+  --ag-primary-start: var(--color-energy-primary);
+  --ag-primary-end: var(--color-energy-secondary);
+  --ag-bg-base: var(--color-base);
+  --ag-bg-card: var(--color-surface);
+  --ag-bg-card-hover: var(--color-surface);
+  --ag-bg-input: var(--color-surface);
+  --ag-bg-input-hover: var(--color-surface);
+  --ag-bg-input-focus: rgba(1, 205, 254, 0.02);
+  --ag-bg-button-secondary-hover: rgba(255, 113, 206, 0.05);
+
+  --ag-text-primary: var(--color-text-primary);
+  --ag-text-secondary: var(--color-text-secondary);
+  --ag-text-tertiary: var(--color-text-tertiary);
+  --ag-text-muted: var(--color-text-tertiary);
+  --ag-text-label: var(--color-text-secondary);
+
+  --ag-border-base: var(--color-wireframe-subtle);
+  --ag-border-card-hover: var(--color-energy-secondary);
+  --ag-border-input-focus: var(--color-energy-secondary);
+
+  --ag-shadow-neo-soft: var(--shadow-card);
+  --ag-shadow-neo-medium: var(--shadow-card-hover);
+  --ag-shadow-neo-card: var(--shadow-card);
+  --ag-shadow-neo-card-hover: var(--shadow-card-hover);
+  --ag-shadow-neo-button: var(--shadow-btn-primary);
+  --ag-shadow-neo-button-hover: var(--shadow-btn-primary-hover);
+
+  /* Background patterns */
+  --ag-bg-pattern-1: none;
+  --ag-bg-pattern-2: none;
+}
+
+/* ========== WIREFRAME CATALYST COMPONENT STYLES ========== */
+
+/* Isometric 3D Grid Overlay */
+.wireframe-grid-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image:
+    repeating-linear-gradient(30deg, transparent 0, transparent 39px, rgba(255, 113, 206, 0.08) 39px, rgba(255, 113, 206, 0.08) 40px),
+    repeating-linear-gradient(-30deg, transparent 0, transparent 39px, rgba(1, 205, 254, 0.08) 39px, rgba(1, 205, 254, 0.08) 40px),
+    repeating-linear-gradient(90deg, transparent 0, transparent 39px, rgba(185, 103, 255, 0.08) 39px, rgba(185, 103, 255, 0.08) 40px);
+  background-size: 80px 139px, 80px 139px, 80px 139px;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.6;
+  animation: grid-pulse 4s ease-in-out infinite;
+}
+
+@keyframes grid-pulse {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 0.3; }
+}
+
+/* Wireframe Button Styles */
+.ag-button-primary,
+.wireframe-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: calc(var(--grid-baseline) * 2);
+  padding: calc(var(--grid-baseline) * 2) calc(var(--grid-baseline) * 4);
+  font-family: var(--font-sans);
+  font-size: var(--font-size-body);
+  font-weight: 600;
+  text-decoration: none;
+  border: 2px solid var(--color-energy-primary);
+  background: var(--color-wireframe);
+  color: var(--color-surface);
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.5s var(--spring-tension);
+  border-radius: var(--radius-btn-primary-default);
+}
+
+.ag-button-primary::before,
+.wireframe-btn-primary::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(45deg, transparent 0, transparent 2px, var(--color-wireframe-subtle) 2px, var(--color-wireframe-subtle) 4px);
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+
+.ag-button-primary:hover,
+.wireframe-btn-primary:hover {
+  background: var(--gradient-vaporwave-diagonal);
+  border-color: var(--color-energy-primary);
+  color: var(--color-wireframe);
+  box-shadow: var(--shadow-btn-primary-hover);
+  border-radius: var(--radius-btn-primary-hover);
+  transform: translateY(-2px);
+}
+
+.ag-button-primary:hover::before,
+.wireframe-btn-primary:hover::before {
+  opacity: 0.5;
+  animation: schematic-scan 2s linear infinite;
+}
+
+@keyframes schematic-scan {
+  from { background-position: 0 0; }
+  to { background-position: 20px 20px; }
+}
+
+.ag-button-secondary,
+.wireframe-btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: calc(var(--grid-baseline) * 2);
+  padding: calc(var(--grid-baseline) * 2) calc(var(--grid-baseline) * 4);
+  font-family: var(--font-sans);
+  font-size: var(--font-size-body);
+  font-weight: 600;
+  text-decoration: none;
+  border: 2px solid var(--color-wireframe);
+  background: var(--color-surface);
+  color: var(--color-text-primary);
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.5s var(--spring-tension);
+  border-radius: var(--radius-btn-default);
+}
+
+.ag-button-secondary::before,
+.wireframe-btn-secondary::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(45deg, transparent 0, transparent 2px, var(--color-wireframe-subtle) 2px, var(--color-wireframe-subtle) 4px);
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+
+.ag-button-secondary:hover,
+.wireframe-btn-secondary:hover {
+  transform: translateY(-2px);
+  border-color: var(--color-energy-secondary);
+  color: var(--color-wireframe);
+  border-radius: var(--radius-btn-hover);
+}
+
+.ag-button-secondary:hover::before,
+.wireframe-btn-secondary:hover::before {
+  opacity: 0.5;
+  animation: schematic-scan 2s linear infinite;
+}
+
+/* Wireframe Card Styles */
+.wireframe-card {
+  background: var(--color-surface);
+  border: 2px solid var(--color-wireframe);
+  padding: calc(var(--grid-baseline) * 4);
+  position: relative;
+  transition: all 0.5s var(--spring-tension);
+  border-radius: var(--radius-card-default);
+}
+
+.wireframe-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--color-energy-secondary);
+  box-shadow: var(--shadow-card-hover);
+  border-radius: var(--radius-card-hover);
+}
+
+/* Wireframe Input Styles */
+.wireframe-input {
+  width: 100%;
+  padding: calc(var(--grid-baseline) * 2);
+  background: var(--color-surface);
+  border: 2px solid var(--color-wireframe-subtle);
+  color: var(--color-text-primary);
+  font-family: var(--font-sans);
+  font-size: var(--font-size-body);
+  transition: all 0.4s var(--spring-tension);
+  border-radius: var(--radius-input-default);
+}
+
+.wireframe-input:focus {
+  outline: none;
+  border-color: var(--color-energy-secondary);
+  box-shadow: var(--shadow-input-focus);
+  border-radius: var(--radius-input-focus);
+}
+
+/* Technical Badge */
+.wireframe-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: calc(var(--grid-baseline));
+  padding: calc(var(--grid-baseline)) calc(var(--grid-baseline) * 2);
+  font-family: var(--font-mono);
+  font-size: var(--font-size-tiny);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border: 1px solid var(--color-wireframe);
+  background: var(--color-surface);
+  color: var(--color-wireframe-light);
+  position: relative;
+  margin: calc(var(--grid-baseline)) calc(var(--grid-baseline)) 0 0;
+  transition: all 0.3s var(--spring-smooth);
+}
+
+.wireframe-badge::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  background: var(--color-energy-primary);
+  box-shadow: 0 0 12px var(--color-energy-primary);
+  animation: status-blink 2s ease-in-out infinite;
+}
+
+@keyframes status-blink {
+  0%, 100% {
+    opacity: 1;
+    box-shadow: 0 0 12px var(--color-energy-primary);
+  }
+  50% {
+    opacity: 0.3;
+    box-shadow: 0 0 4px var(--color-energy-primary);
+  }
+}
+
+.wireframe-badge:hover {
+  transform: translateY(-1px);
+  border-color: var(--color-energy-primary);
+  color: var(--color-wireframe);
+  box-shadow: 0 4px 12px rgba(255, 113, 206, 0.3);
+}
+
+/* Grid Annotations */
+.grid-annotation {
+  position: fixed;
+  font-family: var(--font-mono);
+  font-size: 9px;
+  color: var(--color-energy-secondary);
+  background: var(--color-surface);
+  padding: 2px 6px;
+  border: 1px solid var(--color-energy-secondary);
+  pointer-events: none;
+  z-index: 1;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Section Headers with Technical Labels */
+.section-header-wireframe {
+  display: flex;
+  align-items: baseline;
+  gap: calc(var(--grid-baseline) * 2);
+  margin-bottom: calc(var(--grid-baseline) * 6);
+  padding-bottom: calc(var(--grid-baseline) * 2);
+  border-bottom: 1px solid var(--color-wireframe-subtle);
+}
+
+.section-label-wireframe {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-tiny);
+  color: var(--color-energy-secondary);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}

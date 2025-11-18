@@ -1,0 +1,167 @@
+{
+  "colors": {
+    "primary": {
+      "start": "#ea580c",
+      "end": "#ff6b35",
+      "gradient": "linear-gradient(135deg, #ea580c 0%, #ff6b35 100%)",
+      "textGradient": "linear-gradient(90deg, #ea580c 0%, #ff6b35 100%)"
+    },
+    "background": {
+      "base": "#ffffff",
+      "card": "#ffffff",
+      "cardHover": "#ffffff",
+      "input": "#ffffff",
+      "inputHover": "#ffffff",
+      "inputFocus": "rgba(255, 107, 53, 0.02)",
+      "buttonSecondaryHover": "rgba(255, 107, 53, 0.05)"
+    },
+    "text": {
+      "primary": "#0f172a",
+      "secondary": "#334155",
+      "tertiary": "#475569",
+      "body": "#334155",
+      "muted": "#64748b",
+      "label": "#475569",
+      "placeholder": "#cbd5e1",
+      "componentLabel": "#64748b"
+    },
+    "border": {
+      "base": "#e9ecef",
+      "cardHover": "rgba(255, 107, 53, 0.3)",
+      "inputHover": "#dee2e6",
+      "inputFocus": "#ff6b35",
+      "buttonSecondary": "#ff6b35",
+      "buttonSecondaryHover": "#ea580c"
+    }
+  },
+  "typography": {
+    "fontSize": {
+      "title": "2.5rem",
+      "h1": "4rem",
+      "h2": "3rem",
+      "h3": "2rem",
+      "body": "1rem",
+      "button": "0.9375rem",
+      "label": "0.875rem",
+      "componentLabel": "0.75rem",
+      "badge": "0.75rem",
+      "hero": "6rem",
+      "display": "5rem"
+    },
+    "fontWeight": {
+      "title": 700,
+      "h1": 700,
+      "h2": 600,
+      "h3": 600,
+      "button": 600,
+      "label": 600,
+      "componentLabel": 600,
+      "badge": 600
+    },
+    "letterSpacing": {
+      "title": "0.1em",
+      "h1": "0.05em",
+      "h2": "0.02em",
+      "h3": "-0.01em",
+      "display": "0.03em",
+      "hero": "0.02em",
+      "componentLabel": "0.15em"
+    },
+    "lineHeight": {
+      "title": 1.15,
+      "h1": 1.1,
+      "h2": 1.2,
+      "h3": 1.3,
+      "display": 1.05,
+      "hero": 0.95,
+      "body": 1.6
+    },
+    "textTransform": {
+      "title": "uppercase",
+      "h1": "uppercase",
+      "componentLabel": "uppercase"
+    }
+  },
+  "spacing": {
+    "xs": "0.25rem",
+    "sm": "0.5rem",
+    "md": "0.75rem",
+    "lg": "1rem",
+    "xl": "1.5rem",
+    "2xl": "2rem",
+    "3xl": "3rem",
+    "button": {
+      "padding": "0.875rem 2rem",
+      "margin": "0.5rem"
+    },
+    "card": {
+      "padding": "2rem",
+      "marginBottom": "1.5rem"
+    },
+    "input": {
+      "padding": "0.875rem 1rem"
+    },
+    "badge": {
+      "padding": "0.375rem 0.75rem"
+    },
+    "componentGroup": {
+      "marginBottom": "3rem"
+    }
+  },
+  "borderRadius": {
+    "button": "50px",
+    "buttonHoverPrimary": "60px 40px 60px 40px",
+    "buttonHoverSecondary": "40px 60px 40px 60px",
+    "card": "32px 16px 32px 16px",
+    "cardHover": "16px 32px 16px 32px",
+    "input": "16px",
+    "inputHover": "16px",
+    "inputFocus": "24px 16px 24px 16px",
+    "badge": "20px"
+  },
+  "shadows": {
+    "button": "0 2px 8px rgba(255, 107, 53, 0.25)",
+    "buttonHover": "0 4px 16px rgba(255, 107, 53, 0.4)",
+    "card": "0 2px 8px rgba(0, 0, 0, 0.04)",
+    "cardHover": "0 8px 24px rgba(255, 107, 53, 0.15)",
+    "inputFocus": "0 0 0 3px rgba(255, 107, 53, 0.1)",
+    "accent": "0 0 20px rgba(255, 107, 53, 0.3)",
+    "neoMinimalism": {
+      "soft": "0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.08)",
+      "medium": "0 4px 6px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.06)",
+      "deep": "0 10px 15px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.05)",
+      "card": "0 2px 4px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.04)",
+      "cardHover": "0 8px 12px rgba(0, 0, 0, 0.12), 0 4px 6px rgba(0, 0, 0, 0.06)",
+      "button": "0 2px 4px rgba(255, 0, 255, 0.15), 0 1px 2px rgba(255, 0, 255, 0.1)",
+      "buttonHover": "0 6px 8px rgba(255, 0, 255, 0.2), 0 3px 4px rgba(255, 0, 255, 0.15)",
+      "glow": "0 0 20px rgba(139, 92, 246, 0.15), 0 0 40px rgba(139, 92, 246, 0.08)"
+    }
+  },
+  "transitions": {
+    "base": "all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55)",
+    "fast": "all 0.3s ease",
+    "slow": "all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55)"
+  },
+  "animations": {
+    "gridFlow": {
+      "duration": "2s",
+      "timing": "linear",
+      "iteration": "infinite"
+    },
+    "gentleFloat": {
+      "duration": "15s",
+      "timing": "ease-in-out",
+      "iteration": "infinite"
+    }
+  },
+  "transforms": {
+    "buttonHover": "translateY(-2px) scale(1.02)",
+    "cardHover": "translateY(-4px)",
+    "inputFocus": "scale(1.01)"
+  },
+  "effects": {
+    "backdropBlur": "blur(10px)",
+    "gridPattern": "repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(255, 255, 255, 0.1) 2px, rgba(255, 255, 255, 0.1) 4px)"
+  }
+}
+
