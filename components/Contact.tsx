@@ -9,19 +9,45 @@ export default function Contact() {
     message: '',
   });
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setError(null);
+    
     // Client-side validation
     if (!formData.email || !formData.message) {
-      alert('Please fill in all required fields.');
+      setError('Please fill in all required fields.');
       return;
     }
-    // In a real application, this would send to a backend
-    console.log('Form submitted:', formData);
-    setSubmitted(true);
-    setFormData({ firstName: '', email: '', message: '' });
-    setTimeout(() => setSubmitted(false), 5000);
+
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Failed to send message');
+      }
+
+      // Success - show message and clear form
+      setSubmitted(true);
+      setFormData({ firstName: '', email: '', message: '' });
+      setTimeout(() => setSubmitted(false), 5000);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Something went wrong. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -34,7 +60,7 @@ export default function Contact() {
   return (
     <section id="say-hi" className="py-24 px-4 sm:px-6 lg:px-8" style={{ paddingTop: 'calc(var(--grid-baseline) * 12)', paddingBottom: 'calc(var(--grid-baseline) * 12)' }}>
       <div className="max-w-2xl mx-auto">
-        <div className="wireframe-section-header reveal">
+        <div className="wireframe-section-header justify-center mb-6 reveal">
           <span className="wireframe-section-label">07</span>
           <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold text-[var(--color-text-primary)]" style={{ letterSpacing: '-0.02em' }}>
             Say Hi!
@@ -88,6 +114,16 @@ export default function Contact() {
               placeholder="Describe your project or inquiry..."
             />
           </div>
+          {error && (
+            <div className="mb-4 p-4 border-2 border-red-500 rounded" style={{ 
+              background: 'rgba(239, 68, 68, 0.1)', 
+              color: 'var(--color-text-primary)',
+              fontFamily: 'var(--font-mono)',
+              fontSize: '0.875rem'
+            }}>
+              {error}
+            </div>
+          )}
           {submitted && (
             <div className="mb-4 p-4 border-2 border-[var(--color-energy-primary)] rounded" style={{ 
               background: 'rgba(255, 113, 206, 0.1)', 
@@ -95,14 +131,15 @@ export default function Contact() {
               fontFamily: 'var(--font-mono)',
               fontSize: '0.875rem'
             }}>
-              Thank you! Your message has been sent.
+              Thank you! Your message has been sent successfully.
             </div>
           )}
           <button
             type="submit"
-            className="wireframe-btn wireframe-btn-primary w-full"
+            disabled={isSubmitting}
+            className="wireframe-btn wireframe-btn-primary w-full disabled:opacity-50 disabled:cursor-not-allowed"
           >
-            Submit
+            {isSubmitting ? 'Sending...' : 'Submit'}
           </button>
         </form>
       </div>

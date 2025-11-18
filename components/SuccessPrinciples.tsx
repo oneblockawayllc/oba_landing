@@ -25,7 +25,7 @@ export default function SuccessPrinciples() {
   return (
     <section className="py-16 px-4 sm:px-6 lg:px-8" style={{ paddingTop: 'calc(var(--grid-baseline) * 12)', paddingBottom: 'calc(var(--grid-baseline) * 12)' }}>
       <div className="max-w-7xl mx-auto">
-        <div className="wireframe-section-header reveal">
+        <div className="wireframe-section-header justify-center mb-6 reveal">
           <span className="wireframe-section-label">04</span>
           <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold text-[var(--color-text-primary)]" style={{ letterSpacing: '-0.02em' }}>
             How We'll Succeed.

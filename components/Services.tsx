@@ -29,7 +29,7 @@ export default function Services() {
   return (
     <section id="how-i-can-help" className="py-24 px-4 sm:px-6 lg:px-8" style={{ paddingTop: 'calc(var(--grid-baseline) * 12)', paddingBottom: 'calc(var(--grid-baseline) * 12)' }}>
       <div className="max-w-7xl mx-auto">
-        <div className="wireframe-section-header reveal">
+        <div className="wireframe-section-header justify-center mb-6 reveal">
           <span className="wireframe-section-label">01</span>
           <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold text-[var(--color-text-primary)]" style={{ letterSpacing: '-0.02em' }}>
             How I Can Help.
