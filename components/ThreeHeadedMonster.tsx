@@ -8,7 +8,7 @@ export default function ThreeHeadedMonster() {
         'Tangible Outputs: Actionable documentation such as onboarding guides and employee growth roadmaps.',
         'Direct Impact: Improve team productivity by fostering a positive work environment.',
       ],
-      id: 'COMP-001',
+      id: 'EXP-001',
     },
     {
       title: 'UX/UI Design',
@@ -18,7 +18,7 @@ export default function ThreeHeadedMonster() {
         'Strategic Design: Create interfaces that drive engagement and conversion.',
         'Collaborative Process: Work closely with stakeholders to ensure alignment.',
       ],
-      id: 'COMP-002',
+      id: 'EXP-002',
     },
     {
       title: 'AI Implementation & Orchestration',
@@ -28,7 +28,7 @@ export default function ThreeHeadedMonster() {
         'Strategic Integration: Seamlessly orchestrate AI systems within existing workflows.',
         'Measurable Results: Deliver AI implementations that drive business growth and efficiency.',
       ],
-      id: 'COMP-003',
+      id: 'EXP-003',
     },
   ];
 
