@@ -1,34 +1,19 @@
 export default function ThreeHeadedMonster() {
-  const competencies = [
+  const methodology = [
     {
-      title: 'Account Management & Employee Relations',
-      titleComponent: 'Account Management & Employee Relations',
-      benefits: [
-        'Deep Understanding: Capture the essence of your workplace culture through informed insights.',
-        'Tangible Outputs: Actionable documentation such as onboarding guides and employee growth roadmaps.',
-        'Direct Impact: Improve team productivity by fostering a positive work environment.',
-      ],
-      id: 'EXP-001',
+      title: 'Start Anywhere, Expand as Needed',
+      description: "No rigid packages or forced roadmaps. Stuck on customer experience? We start with design. Need strategic clarity first? We begin with workshops. Every business is different, so we'll figure out what you need first, then expand from there as your business evolves.",
+      id: 'MTHD-001',
     },
     {
-      title: 'UX/UI Design',
-      titleComponent: 'UX/UI Design',
-      benefits: [
-        'User-Centered Approach: Design solutions that prioritize user needs and business objectives.',
-        'Strategic Design: Create interfaces that drive engagement and conversion.',
-        'Collaborative Process: Work closely with stakeholders to ensure alignment.',
-      ],
-      id: 'EXP-002',
+      title: 'Learn as We Build',
+      description: "I don't gatekeep knowledge or create dependency. As we work together, I'll teach you the frameworks, show you the tools, and explain the 'why' behind every decision. You'll walk away equipped to make smart choices long after our engagement ends.",
+      id: 'MTHD-002',
     },
     {
-      title: 'AI Implementation & Orchestration',
-      titleComponent: <><span className="font-[var(--font-mono)]">AI</span> Implementation & Orchestration</>,
-      benefits: [
-        'Innovation: Transform ideas into working AI solutions that solve real problems.',
-        'Strategic Integration: Seamlessly orchestrate AI systems within existing workflows.',
-        'Measurable Results: Deliver AI implementations that drive business growth and efficiency.',
-      ],
-      id: 'EXP-003',
+      title: 'Own Everything We Create',
+      description: "Every strategy document, design file, AI implementation, and piece of code belongs to you. No proprietary systems you can't access. No ongoing dependencies. Everything we build together is yours to keep, modify, and build upon.",
+      id: 'MTHD-003',
     },
   ];
 
@@ -39,27 +24,22 @@ export default function ThreeHeadedMonster() {
           <div className="wireframe-section-header justify-center mb-6">
             <span className="wireframe-section-label">02</span>
             <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold text-[var(--color-text-primary)]" style={{ letterSpacing: '-0.02em' }}>
-              Three Areas of Expertise
+              How We'll Work Together
             </h2>
           </div>
           <p className="text-lg sm:text-xl text-[var(--color-text-secondary)] max-w-2xl mx-auto font-light leading-relaxed">
-            A unique combination of skills that brings together business strategy, user experience, and cutting-edge <span className="font-[var(--font-mono)] text-[var(--color-energy-primary)]">AI</span> technology.
+            You don't just get deliverables. You get knowledge. My approach is built on collaboration, education, and ownership. Here's what makes this different from working with an agency:
           </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8" style={{ gap: 'calc(var(--grid-baseline) * 4)' }}>
-          {competencies.map((competency, index) => (
-            <div key={index} className="wireframe-card reveal" data-id={competency.id} style={{ animationDelay: `${0.3 + index * 0.1}s` }}>
+          {methodology.map((item, index) => (
+            <div key={index} className="wireframe-card reveal" data-id={item.id} style={{ animationDelay: `${0.3 + index * 0.1}s` }}>
               <h3 className="text-xl sm:text-2xl font-bold text-[var(--color-text-primary)] mb-6" style={{ letterSpacing: '-0.01em' }}>
-                {competency.titleComponent}
+                {item.title}
               </h3>
-              <ul className="space-y-4">
-                {competency.benefits.map((benefit, benefitIndex) => (
-                  <li key={benefitIndex} className="text-[var(--color-text-secondary)] font-light leading-relaxed">
-                    <span className="font-semibold text-[var(--color-energy-primary)]">{benefit.split(':')[0]}:</span>
-                    {benefit.split(':')[1]}
-                  </li>
-                ))}
-              </ul>
+              <p className="text-[var(--color-text-secondary)] font-light leading-relaxed">
+                {item.description}
+              </p>
             </div>
           ))}
         </div>

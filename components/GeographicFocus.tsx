@@ -6,32 +6,38 @@ export default function GeographicFocus() {
           <div className="wireframe-section-header justify-center mb-6">
             <span className="wireframe-section-label">03</span>
             <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold text-[var(--color-text-primary)]" style={{ letterSpacing: '-0.02em' }}>
-              Serving Downtown Apex & RTP Region
+              Rooted in Downtown Apex & RTP
             </h2>
           </div>
         </div>
         <div className="max-w-4xl mx-auto reveal" style={{ animationDelay: '0.2s' }}>
           <div className="wireframe-card" data-id="GEO-001">
             <p className="text-lg sm:text-xl text-[var(--color-text-secondary)] mb-8 leading-relaxed font-light">
-              At the heart of every successful business is a clear vision and the right tools to execute it. I prioritize understanding your business needs and goals, ensuring that every strategy and solution places your success at the forefront.
+              <strong className="text-[var(--color-text-primary)] font-semibold">Big agency results without big agency prices—because I'm your neighbor, not a vendor.</strong> I live and work in downtown Apex. I understand the unique challenges small businesses face in our community, from competing with RTP tech giants for talent to standing out in a growing market.
             </p>
             <div className="space-y-6" style={{ marginTop: 'calc(var(--grid-baseline) * 3)', paddingTop: 'calc(var(--grid-baseline) * 3)', borderTop: '1px solid var(--color-wireframe-subtle)' }}>
               <div>
                 <h3 className="text-xl sm:text-2xl font-bold text-[var(--color-text-primary)] mb-3" style={{ letterSpacing: '-0.01em' }}>
-                  Local Focus, Regional Reach
+                  Here's what local means for you:
                 </h3>
-                <p className="text-[var(--color-text-secondary)] leading-relaxed font-light">
-                  Specializing in serving downtown Apex businesses while extending support throughout the Research Triangle Park (RTP) region. Whether you're a local startup or an established business looking to innovate, I'm here to help bring your ideas to life.
-                </p>
               </div>
-              <div>
-                <h3 className="text-xl sm:text-2xl font-bold text-[var(--color-text-primary)] mb-3" style={{ letterSpacing: '-0.01em' }}>
-                  Community-Driven Growth
-                </h3>
-                <p className="text-[var(--color-text-secondary)] leading-relaxed font-light">
-                  Deep understanding of the Apex and RTP business landscape. By focusing on local businesses, we create solutions that resonate with your community and drive sustainable growth.
-                </p>
-              </div>
+              <ul className="space-y-4">
+                <li className="text-[var(--color-text-secondary)] leading-relaxed font-light">
+                  <span className="font-semibold text-[var(--color-energy-primary)]">Flexible, face-to-face collaboration</span> when it matters (coffee in downtown Apex, not just Zoom calls)
+                </li>
+                <li className="text-[var(--color-text-secondary)] leading-relaxed font-light">
+                  <span className="font-semibold text-[var(--color-energy-primary)]">Deep market understanding</span> (I know your customers, your competitors, and your challenges)
+                </li>
+                <li className="text-[var(--color-text-secondary)] leading-relaxed font-light">
+                  <span className="font-semibold text-[var(--color-energy-primary)]">No agency overhead</span> (no hourly minimums or rigid contracts designed for enterprise budgets)
+                </li>
+                <li className="text-[var(--color-text-secondary)] leading-relaxed font-light">
+                  <span className="font-semibold text-[var(--color-energy-primary)]">Invested in your success</span> because your growth strengthens our community
+                </li>
+              </ul>
+              <p className="text-lg text-[var(--color-text-secondary)] leading-relaxed font-light" style={{ marginTop: 'calc(var(--grid-baseline) * 3)' }}>
+                Whether you're in Peak City or the RTP corridor, One Block Away exists to help small businesses modernize, compete, and grow—without breaking the bank.
+              </p>
             </div>
           </div>
         </div>

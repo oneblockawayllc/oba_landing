@@ -36,10 +36,10 @@ export default function Hero() {
             </span>
           </h1>
           <h2 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold text-[var(--color-text-primary)] mb-8 reveal" style={{ animationDelay: '0.3s' }}>
-            <span className="font-[var(--font-mono)] text-[var(--color-energy-primary)] font-bold">AI</span> Implementation & Orchestration Specialist.
+            Stuck trying to grow your business?
           </h2>
           <p className="text-lg sm:text-xl font-light text-[var(--color-text-secondary)] max-w-3xl mx-auto mb-12 leading-relaxed reveal" style={{ animationDelay: '0.5s' }}>
-            empowering downtown Apex and RTP region businesses by bringing ideas to life through AI solutions, strategic roadmaps, and transformative digital experiences.
+            From UX design to strategy to AI implementation—I help Apex & RTP small businesses evolve and compete. Start with what's urgent, expand as you're ready, own everything we create.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center reveal" style={{ animationDelay: '0.7s' }}>
             <a
