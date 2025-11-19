@@ -16,9 +16,15 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Send email using Resend
+    // Debug logging for email sending attempt
+    console.log('Attempting to send email with Resend...');
+    console.log('From:', 'Contact Form <onboarding@resend.dev>');
+    console.log('To:', ['oneblockawayllc@gmail.com']);
+    console.log('Reply-To:', email);
+
+    // Send email using Resend - Update 'from' address to a verified domain for production
     const { data, error } = await resend.emails.send({
-      from: 'Contact Form <onboarding@resend.dev>', // You'll need to verify a domain for production
+      from: 'Contact Form <contact@wallymo.com>', // Replace with verified domain in production
       to: ['oneblockawayllc@gmail.com'],
       replyTo: email,
       subject: `New Contact Form Submission${firstName ? ` from ${firstName}` : ''}`,
@@ -39,6 +45,9 @@ Message:
 ${message}
       `,
     });
+
+    console.log('Resend response data:', data);
+    console.log('Resend response error:', error);
 
     if (error) {
       console.error('Resend error:', error);
